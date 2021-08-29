@@ -1,14 +1,13 @@
 import './css/styles.css';
 import ImagesApiService from './js/apiService';
 
-import CountryCardTpl from './templates/country-Card.hbs';
-import CountriesListTpl from './templates/countriesList.hbs';
+import ImageTpl from './templates/image.hbs';
 import { error } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
 
 const refs = {
-  searchForm: document.querySelector('.js-search-form'),
-  imagesContainer: document.querySelector('.js-images-container'),
+  searchForm: document.querySelector('.search-form'),
+  imagesContainer: document.querySelector('.gallery'),
 };
 
 const imagesApiService = new ImagesApiService();
@@ -29,9 +28,13 @@ function onSearch(e) {
 }
 
 function fetchImages() {
-  imagesApiService.fetchImages().then(images => {
-    console.log(`images`, images);
+  imagesApiService.fetchImages().then( images  => {
+    console.log(`images`, images );
+    appendImagesMarkup( images );
   });
 }
 
+function appendImagesMarkup(images) {
+  refs.imagesContainer.insertAdjacentHTML('beforeend', ImageTpl(images.hits));
+}
 

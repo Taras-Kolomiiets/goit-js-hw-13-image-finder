@@ -16,10 +16,11 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <form class="form-inline search-form js-search-form">
+    <!-- <form class="form-inline search-form js-search-form">
       <div class="form-group mx-sm-3 mb-2">
         <label for="searchQuery" class="sr-only">Что ищем?</label>
         <input
@@ -32,11 +33,15 @@
         />
       </div>
       <button type="submit" class="btn btn-primary mb-2">Искать</button>
+    </form> -->
+
+    <form class="search-form" id="search-form">
+      <input type="text" name="query" autocomplete="off" placeholder="Search images..." />
     </form>
 
-    <ul class="articles js-images-container"></ul>
+    <ul class="gallery"></ul>
 
-    <button type="button" class="btn btn-primary button" data-action="load-more">
+    <!-- <button type="button" class="btn btn-primary button" data-action="load-more">
       <span
         class="spinner-border spinner-border-sm spinner is-hidden"
         role="status"
@@ -44,7 +49,7 @@
       ></span>
 
       <span class="label">Показать ещё</span>
-    </button>
+    </button> -->
     <script src="./index.js"></script>
   </body>
 </html>
