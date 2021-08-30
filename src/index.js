@@ -97,7 +97,7 @@ function scrollpageBtn() {
   loadMoreBtn.refs.button.scrollIntoView({
     behavior: 'smooth',
     block: 'start',
-    inline: "nearest"
+    inline: 'nearest'
   });
 }
 
@@ -107,5 +107,5 @@ refs.imagesContainer.addEventListener('click', (event) => {
   };
   basicLightbox.create(`
     <img width="1400" height="900" src="${event.target.dataset['source']}">
-	`).show()
+	`).show();
 })
