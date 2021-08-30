@@ -27,6 +27,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "basiclightbox": "^5.0.4"
+    "basiclightbox": "^5.0.4",
+    "simple-notify": "^0.5.4"
   }
 }
