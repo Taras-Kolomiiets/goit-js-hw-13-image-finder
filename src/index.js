@@ -1,9 +1,7 @@
 import './css/styles.css';
 import ImagesApiService from './js/apiService';
 import LoadMoreBtn from './js/load-more-btn';
-
 import ImageTpl from './templates/image.hbs';
-
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -45,8 +43,16 @@ function fetchImages() {
 
 function appendImagesMarkup(images) {
   refs.imagesContainer.insertAdjacentHTML('beforeend', ImageTpl(images.hits));
+  scrollpageBtn();
 }
 
 function clearImagesContainer() {
   refs.imagesContainer.innerHTML = '';
+}
+
+function scrollpageBtn() {
+  loadMoreBtn.refs.button.scrollIntoView({
+    behavior: 'smooth',
+    block: 'end',
+  });
 }

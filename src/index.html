@@ -21,8 +21,14 @@
   </head>
   <body>
     <form class="search-form" id="search-form">
-      <input type="text" name="query" autocomplete="off" placeholder="Search images..." />
-      <button type="submit" class="btn btn-primary mb-2">Искать</button>
+      <input
+        type="text"
+        name="query"
+        class="form-input"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
 
     <ul class="gallery"></ul>
@@ -34,7 +40,7 @@
         aria-hidden="true"
       ></span>
 
-      <span class="label">Показать ещё</span>
+      <span class="label">Load more</span>
     </button>
     <script src="./index.js"></script>
   </body>
