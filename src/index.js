@@ -3,6 +3,9 @@ import ImagesApiService from './js/apiService';
 import LoadMoreBtn from './js/load-more-btn';
 import ImageTpl from './templates/image.hbs';
 
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
+
 const refs = {
   searchForm: document.querySelector('.search-form'),
   imagesContainer: document.querySelector('.gallery'),
@@ -35,8 +38,8 @@ function onSearch(e) {
 function fetchImages() {
   loadMoreBtn.disable();
   imagesApiService.fetchImages().then( images  => {
-    console.log(`images`, images );
     appendImagesMarkup(images);
+    console.log(`images`, images)
     loadMoreBtn.enable();
   });
 }
@@ -53,7 +56,16 @@ function clearImagesContainer() {
 function scrollpageBtn() {
   loadMoreBtn.refs.button.scrollIntoView({
     behavior: 'smooth',
-    block: 'end',
+    block: 'start',
     inline: "nearest"
   });
 }
+
+refs.imagesContainer.addEventListener('click', (event) => {
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  };
+  basicLightbox.create(`
+    <img width="1400" height="900" src="${event.target.dataset['source']}">
+	`).show()
+})
