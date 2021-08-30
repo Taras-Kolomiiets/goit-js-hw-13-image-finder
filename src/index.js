@@ -54,5 +54,6 @@ function scrollpageBtn() {
   loadMoreBtn.refs.button.scrollIntoView({
     behavior: 'smooth',
     block: 'end',
+    inline: "nearest"
   });
 }
